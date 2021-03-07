@@ -1,0 +1,1004 @@
+{
+	"info": {
+		"_postman_id": "e364a117-6f6d-4076-b80e-61d23a676217",
+		"name": "simple-kuis-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"reno\",\n    \"username\": \"renosyah\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/user/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"name\",\n    \"search_value\": \"\",\n    \"order_by\": \"name\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/user/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"\",\n    \"username\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/user/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"\",\n    \"username\": \"reno@gmail.com\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/user/login.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"user\",\n    \"username\": \"user@gmail.com\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/user/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"name\": \"\",\n    \"username\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/user/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"kursus bahasa\",\n    \"image_url\" : \"https://campuspedia.id/news/wp-content/uploads/2020/09/tips-belajar-bahasa-asing.jpg\",\n    \"description\": \"kursus bahasa yang menyenangkan\",\n    \"total_exam\": 5,\n    \"require_correct\" : 4,\n    \"created_by\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/course/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"name\",\n    \"search_value\": \"\",\n    \"order_by\": \"name\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/course/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/course/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"kursus bahasa\",\n    \"description\": \"kursus bahasa yang tidak menyenangkan\",\n    \"image_url\": \"https://campuspedia.id/news/wp-content/uploads/2020/09/tips-belajar-bahasa-asing.jpg\",\n    \"total_exam\": 5,\n    \"require_correct\": 4,\n    \"created_by\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/course/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/course/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "exam",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"course_id\": 2,\n    \"number\" : \"5\",\n    \"text\": \"apakah kursus bahasa ite gay?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"course_id\",\n    \"search_value\": \"\",\n    \"order_by\": \"number\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"course_id\": 2,\n    \"number\" : \"5\",\n    \"text\": \"apakah kursus bahasa ite geh?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "exam_answer",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"exam_id\": 5,\n    \"label\" : \"c\",\n    \"text\": \"entah\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_answer/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_answer",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"exam_id\",\n    \"search_value\": \"\",\n    \"order_by\": \"label\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_answer/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_answer",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_answer/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_answer",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"exam_id\": 1,\n    \"label\": \"a\",\n    \"text\": \"iya\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_answer/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_answer",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 16\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_answer/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_answer",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "exam_progress",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"exam_id\": 1,\n    \"exam_answer_id\" : 1,\n    \"answer_by\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"exam_id\",\n    \"search_value\": \"\",\n    \"order_by\": \"exam_id\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one_answered",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_id\": 1,\n    \"answer_by\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/one_answered.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"one_answered.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"exam_id\": 1,\n    \"exam_answer_id\": 1,\n    \"answer_by\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course_id\": 2,\n    \"user_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_progress/reset.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_progress",
+								"reset.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "exam_solution",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"exam_id\": 2,\n    \"exam_answer_id\" : 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_solution/add.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_solution",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_by\": \"exam_id\",\n    \"search_value\": \"\",\n    \"order_by\": \"exam_id\",\n    \"order_dir\": \"asc\",\n    \"offset\": 0,\n    \"limit\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_solution/list.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_solution",
+								"list.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_solution/one.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_solution",
+								"one.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"exam_id\": 4,\n    \"exam_answer_id\": 14\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_solution/update.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_solution",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_solution/delete.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_solution",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "exam_result",
+			"item": [
+				{
+					"name": "result",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course_id\": 2,\n    \"user_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{port}}/api/exam_result/result.php",
+							"host": [
+								"{{protocol}}{{host}}{{port}}"
+							],
+							"path": [
+								"api",
+								"exam_result",
+								"result.php"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

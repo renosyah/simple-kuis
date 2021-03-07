@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>
+        Simple Kuis
+    </title>
+
+    <!-- CSS  -->
+    <link href="./css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="./css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app">
+    
+        <div class="valign-wrapper" style="width:100%;position: absolute;">
+            <div class="valign" style="width:100%;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m8 l6 offset-m2 offset-l3">
+                        <div class="card">
+                            <div class="card-title">
+                                <h5 class="center green-text">
+                                    <br />
+                                    <span>Login</span>
+                                </h5>
+                            </div>
+                            <div class="card-image">
+                            </div>
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="input-field">
+                                            <input id="username" type="text" class="validate" placeholder="username" v-model="username">
+                                            <label for="username">
+                                                <span>Username</span>
+                                            </label>
+                                        </div>
+                                        <div class="input-field">
+                                            <input id="password" type="password" class="validate" placeholder="password" v-model="password">
+                                            <label for="password">
+                                                <span>Password</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center card-action">
+                                <a class="waves-effect waves-light btn-large btn green white-text" style="text-transform:none;width: 100%;" @click="login">
+                                    <b>
+                                        <span>Login</span>
+                                    </b>    
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="./js/materialize.js"></script>
+</body>
+
+</html>

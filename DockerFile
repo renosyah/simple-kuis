@@ -1,0 +1,6 @@
+FROM php:7.3-apache
+COPY . /app
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+EXPOSE 80
+RUN chown -R www-data:www-data /app && a2enmod rewrite
+MAINTAINER syahputrareno975@gmail.com

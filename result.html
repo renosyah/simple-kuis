@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>
+        Simple Kuis
+    </title>
+
+    <!-- CSS  -->
+    <link href="./css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="./css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app">
+        <nav>
+            <div class="nav-wrapper green">
+                <a href="#" class="brand-logo">Simple Kuis</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a v-bind:href="'exam.html?course_id=' + course.id">Exam</a></li>
+                <li><a href="home.html">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="center row">
+                <div class="col s12" v-show="!course">
+                    <p class="center" style="height:300px">Course Not Found</p>
+                </div>
+                <div class="col s12 m1 l1"></div>
+                <div class="col s12 m10 l10">
+                    <div class="card">
+                        <div class="card-image">
+                            <img v-bind:src="course.image_url" width="200" style="height:300px">
+                        </div>
+                        <div class="card-content">
+                            <p>{{ course.name }}</p>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <table class="responsive-table">
+                            <thead>
+                            <tr>
+                                <th>Exam Total</th>
+                                <th>Required Correct</th>
+                                <th>Exam Answered</th>
+                                <th>Correct Answer</th>
+                                <th>Final Score</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ course.total_exam }}</td>
+                                <td>{{ course.require_correct }}</td>
+                                <td>{{ result.total_answered }}</td>
+                                <td>{{ result.total_correct }}</td>
+                                <td>{{ (result.total_correct / course.total_exam)*100 }} % </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <a class="waves-effect waves-light btn-large btn green white-text" style="text-transform:none;width: 100%;" @click="reset(course.id)">
+                        <b>
+                            <span>Reset</span>
+                        </b>    
+                    </a>
+                </div>
+                <div class="col s12 m1 l1"></div>
+            </div>
+ 
+        </div>
+
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./result.js"></script>
+    <script src="./js/materialize.js"></script>
+</body>
+
+</html>
