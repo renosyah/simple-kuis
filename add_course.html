@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>
+        Simple Kuis
+    </title>
+
+    <!-- CSS  -->
+    <link href="./css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="./css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app">
+        <nav>
+            <div class="nav-wrapper green">
+                <a href="#" class="brand-logo">New Course</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="course.html">My Course</a></li>
+                <li><a href="home.html">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br /> <br />
+        <div class="container">
+            <div class="row">
+                <div class="col m2 l3"></div>
+                <div class="col s12 m8 l6">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Name..." id="name" type="text" v-model="course.name">
+                            <label for="name">Course Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea  placeholder="Description..."  id="description" class="materialize-textarea"  v-model="course.description"></textarea>
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img v-show="image != ''" v-bind:src="image" width="200" height="200" />
+                    </div>
+                    <div class="row">
+                        <div class="file-field input-field col s12">
+                            <div class="btn green white-text">
+                                <span>File</span>
+                                <input type="file" enctype="multipart/form-data" @change="onFileChange">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                     <a class="waves-effect waves-light btn-large btn green white-text" style="text-transform:none;width: 100%;" @click="uploadImage">
+                        <b>
+                            <span>Add Course</span>
+                        </b>    
+                    </a>
+                    </div>                                        
+                </div>
+                <div class="col m2 l3"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/add_course.js"></script>
+    <script src="./js/materialize.js"></script>
+</body>
+
+</html>

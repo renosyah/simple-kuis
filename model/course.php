@@ -3,7 +3,7 @@
 // menggabungkan kode dari file result_query.php
 // yg mana result_query digunakan sebagai
 // object yg digunakan untuk hasil
-include("result_query.php");
+include("exam.php");
 
 class course {
     public $id;
@@ -11,7 +11,6 @@ class course {
     public $description;
     public $image_url;
     public $total_exam;
-    public $require_correct;
     public $created_by;
 
     public function __construct(){
@@ -23,16 +22,15 @@ class course {
         $this->description = $data->description;
         $this->image_url = $data->image_url;
         $this->total_exam = $data->total_exam;
-        $this->require_correct = $data->require_correct;
         $this->created_by = $data->created_by;
     }
 
     public function add($db) {
         $result_query = new result_query();
         $result_query->data = "ok";
-        $query = "INSERT INTO course (name,description,image_url,total_exam,require_correct,created_by) VALUES (?,?,?,?,?,?)";
+        $query = "INSERT INTO course (name,description,image_url,created_by) VALUES (?,?,?,?)";
         $stmt = $db->prepare($query);
-        $stmt->bind_param('sssiii', $this->name,$this->description,$this->image_url,$this->total_exam,$this->require_correct,$this->created_by);
+        $stmt->bind_param('sssi', $this->name,$this->description,$this->image_url,$this->created_by);
         $stmt->execute();
         if ($stmt->error != ""){
             $result_query->error =  "error at add new course : ".$stmt->error;
@@ -45,7 +43,7 @@ class course {
     public function one($db) {
         $result_query = new result_query();
         $one = new course();
-        $query = "SELECT id,name,description,image_url,total_exam,require_correct,created_by FROM course WHERE id=? LIMIT 1";
+        $query = "SELECT id,name,description,image_url,created_by FROM course WHERE id=? LIMIT 1";
         $stmt = $db->prepare($query);
         $stmt->bind_param('i', $this->id);
         $stmt->execute();      
@@ -63,9 +61,11 @@ class course {
         $one->id = $result['id'];
         $one->name = $result['name'];
         $one->image_url = $result['image_url'];
+
+        $total = new exam();
+        $one->total_exam = $total->total($db,$one->id)->data;
+        
         $one->description = $result['description'];
-        $one->total_exam = $result['total_exam'];
-        $one->require_correct = $result['require_correct'];
         $one->created_by = $result['created_by'];
         $result_query->data = $one;
         $stmt->close();
@@ -76,7 +76,7 @@ class course {
         $result_query = new result_query();
         $all = array();
         $query = "SELECT 
-                    id,name,description,image_url,total_exam,require_correct,created_by
+                    id,name,description,image_url,created_by
                 FROM 
                     course
                 WHERE
@@ -108,9 +108,11 @@ class course {
             $one->id = $result['id'];
             $one->name = $result['name'];
             $one->image_url = $result['image_url'];
+
+            $total = new exam();
+            $one->total_exam = $total->total($db,$one->id)->data;
+
             $one->description = $result['description'];
-            $one->total_exam = $result['total_exam'];
-            $one->require_correct = $result['require_correct'];
             $one->created_by = $result['created_by'];
             array_push($all,$one);
         }
@@ -122,9 +124,9 @@ class course {
     public function update($db) {
         $result_query = new result_query();
         $result_query->data = "ok";
-        $query = "UPDATE course SET name = ?,description = ?,image_url = ?,total_exam = ?,require_correct = ?,created_by = ? WHERE id=?";
+        $query = "UPDATE course SET name = ?,description = ?,image_url = ?,created_by = ? WHERE id=?";
         $stmt = $db->prepare($query);
-        $stmt->bind_param('sssiiii', $this->name,$this->description,$this->image_url,$this->total_exam,$this->require_correct,$this->created_by,$this->id);
+        $stmt->bind_param('sssii', $this->name,$this->description,$this->image_url,$this->created_by,$this->id);
         $stmt->execute();
         if ($stmt->error != ""){
             $result_query->error = "error at update one user : ".$stmt->error;

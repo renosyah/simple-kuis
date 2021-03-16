@@ -25,7 +25,7 @@
     <div id="app">
         <nav>
             <div class="nav-wrapper green">
-                <a href="#" class="brand-logo">Simple Kuis</a>
+                <a href="#" class="brand-logo">Result Exam {{ course.name }}</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a v-bind:href="'exam.html?course_id=' + course.id">Exam</a></li>
                 <li><a href="home.html">Home</a></li>
@@ -37,11 +37,11 @@
                 <div class="col s12" v-show="!course">
                     <p class="center" style="height:300px">Course Not Found</p>
                 </div>
-                <div class="col s12 m1 l1"></div>
-                <div class="col s12 m10 l10">
+                <div class="col s12 m2 l3"></div>
+                <div class="col s12 m8 l6">
                     <div class="card">
                         <div class="card-image">
-                            <img v-bind:src="course.image_url" width="200" style="height:300px">
+                            <img v-bind:src="course.image_url"  style="height:300px">
                         </div>
                         <div class="card-content">
                             <p>{{ course.name }}</p>
@@ -52,7 +52,6 @@
                             <thead>
                             <tr>
                                 <th>Exam Total</th>
-                                <th>Required Correct</th>
                                 <th>Exam Answered</th>
                                 <th>Correct Answer</th>
                                 <th>Final Score</th>
@@ -61,7 +60,6 @@
                             <tbody>
                             <tr>
                                 <td>{{ course.total_exam }}</td>
-                                <td>{{ course.require_correct }}</td>
                                 <td>{{ result.total_answered }}</td>
                                 <td>{{ result.total_correct }}</td>
                                 <td>{{ (result.total_correct / course.total_exam)*100 }} % </td>
@@ -75,7 +73,7 @@
                         </b>    
                     </a>
                 </div>
-                <div class="col s12 m1 l1"></div>
+                <div class="col s12 m2 l3"></div>
             </div>
  
         </div>
@@ -87,7 +85,7 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./result.js"></script>
+    <script src="./js/result.js"></script>
     <script src="./js/materialize.js"></script>
 </body>
 

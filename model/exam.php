@@ -62,6 +62,28 @@ class exam {
         $stmt->close();
         return $result_query;
     }
+
+    public function total($db,$course_id) {
+        $result_query = new result_query();
+        $query = "SELECT count(*) as total FROM exam WHERE course_id=? LIMIT 1";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param('i', $course_id);
+        $stmt->execute();      
+        if ($stmt->error != ""){
+            $result_query-> error = "error at query one user: ".$stmt->error;
+            $stmt->close();
+            return $result_query;
+        }
+        $rows = $stmt->get_result();
+        if($rows->num_rows == 0){
+            $stmt->close();
+            return $result_query;
+        }
+        $result = $rows->fetch_assoc();
+        $result_query->data = $result['total'];
+        $stmt->close();
+        return $result_query;
+    }
  
     public function all($db,$list_query) {
         $result_query = new result_query();

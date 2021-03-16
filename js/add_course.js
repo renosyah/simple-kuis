@@ -3,19 +3,13 @@ new Vue({
     data() {
         return {
             is_online : true,
-            result : {
-                course_id : 0,
-                user_id : 0,
-                total_answered : 0,
-                total_correct : 0
-            },
-            course : {
+            image : "",
+            file : null,
+            course: {
                 id: 0,
                 name: "",
                 description: "",
                 image_url: "",
-                total_exam: 0,
-                require_correct: 0,
                 created_by: 0
             },
             host : {
@@ -36,67 +30,41 @@ new Vue({
         this.loadSession()
     },
     methods : {
-        loadCourse(course_id){
-            axios
-            .post(this.baseUrl() + '/api/course/one.php', {id : course_id})
-            .then(response => {
-                if (response.data.error != null || response.data.data == null){
+        uploadImage(){
+
+            if (!window.localStorage.getItem('session')) {
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append('file', this.file);
+            axios.post(this.baseUrl() + '/api/upload_file.php', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                }
+            }).then(response => {
+                if (response.data.error != null){
                     return
                 }
-                this.course = response.data.data
-                this.loadResult(this.course.id)
+                this.course.image_url = this.baseUrl() + response.data.data.url
+                this.addCourse()
             })
             .catch(errors => {
                 console.log(errors)
             }) 
         },
-        loadResult(course_id){
-
-            if (!window.localStorage.getItem('session')) {
-                return;
-            }
-
+        addCourse(){
             let user = JSON.parse(window.localStorage.getItem('session'))
 
-            let data = {
-                course_id : course_id,
-                user_id : user.id,
-                total_answered : 0,
-                total_correct : 0
-            }
+            this.course.created_by = user.id
 
             axios
-                .post(this.baseUrl() + '/api/exam_result/result.php',data)
-                .then(response => {
-                    if (response.data.error != null || response.data.data == null){
-                        return
-                    }
-                    this.result = response.data.data
-                })
-                .catch(errors => {
-                    console.log(errors)
-                }) 
-  
-        },
-        reset(course_id){
-            if (!window.localStorage.getItem('session')) {
-                return;
-            }
-
-            let user = JSON.parse(window.localStorage.getItem('session'))
-
-            let data = {
-                course_id : course_id,
-                user_id : user.id
-            }
-
-            axios
-                .post(this.baseUrl() + '/api/exam_progress/reset.php',data)
+                .post(this.baseUrl() + '/api/course/add.php',this.course)
                 .then(response => {
                     if (response.data.error != null){
                         return
                     }
-                    window.location.reload();
+                    window.location = this.baseUrl() + "/course.html"
                 })
                 .catch(errors => {
                     console.log(errors)
@@ -107,11 +75,20 @@ new Vue({
                 window.location = this.baseUrl() + "/index.html"
                 return;
             }
-
-            let param = new URLSearchParams(window.location.search)
-            let course_id = param.get('course_id') + "";
-    
-            this.loadCourse(course_id)
+        },
+        onFileChange(e) {
+            let files = e.target.files || e.dataTransfer.files
+            if (!files.length) return
+            this.file = files[0]
+            this.createImage(files[0])
+        },
+        createImage(file) {
+            let reader = new FileReader()
+            let vm = this
+            reader.onload = function(e) {
+                vm.image = e.target.result
+            }
+            reader.readAsDataURL(file)
         },
         backPress(){
             if (event.state && event.state.noBackExitsApp) {

@@ -12,8 +12,6 @@ CREATE TABLE course(
     name TEXT,
     description TEXT,
     image_url TEXT,
-    total_exam INT(11),
-    require_correct INT(11),
     created_by INT(11) NOT NULL,
     FOREIGN KEY (created_by) REFERENCES user(id)
 );
